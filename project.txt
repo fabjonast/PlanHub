@@ -1,0 +1,8 @@
+This project involves developing and designing a digital planner application that helps
+users plan, organize, and keep track of their tasks, schedules and goals. This application 
+aims to help with time management and productivity by providing an easy-to-use platform
+for planning daily, weekly, monthly, or long-term. 
+This application is intended for people who have a hard time keeping track of their tasks,
+want to create a simple schedule, or plan ahead of time.
+In this application users will be able to create, edit, and track tasks, set deadlines,
+and view their schedules. Additional features include reminders, notes and progress tracking.
