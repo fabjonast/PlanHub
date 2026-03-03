@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body class="register-page">
+
     <a href="login.html">Login</a>
     <a href="plan.html">Plan</a>
-    <br>
-    <br>
-    <form>
-        <label for="firstname">First Name</label><br>
-        <input type="text" id="firstname" name="firstname"><br>
-        <label for="lastname">Last Name</label><br>
-        <input type="text" id="lastname" name="lastname"><br>
-        <label for="username">Username</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="pwd">Password</label><br>
-        <input type="password" id="pwd" name="pwd">
-        <br>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
 
     <br>
+    <br>
+    <div class="form-box">
+        <h1>Register</h1>
+        <form>
+            <div class="input-wrapper">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="firstname" name="firstname" placeholder="First Name" required><br>
+            </div>
+            <div class="input-wrapper">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required><br>
+            </div>
+            <div class="input-wrapper">
+                <i class="fa-regular fa-user"></i>
+                <input type="text" id="username" name="username" placeholder="Username" required><br>
+            </div>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password" id="pwd" name="pwd" placeholder="Password" required><br>
+            </div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
 </body>
 </html>
