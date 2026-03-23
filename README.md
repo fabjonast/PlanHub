@@ -3,7 +3,7 @@ PlanHub is an application built to empower users in managing their tasks, schedu
 
 The application is further enhanced by providing features such as automated reminders, note-taking, and progress tracking.
 
-![PlanHub ERD]("Database Design/PlanHubERD.jpeg")
+![PlanHub ERD](Database-Design/PlanHubERD.jpeg)
 
 #### PlanHub Business Rules
 
@@ -23,6 +23,6 @@ A TASK may have any number of NOTEs. A NOTE can have exactly one TASK.
 A TASK may have one CATEGORY. A CATEGORY can have exactly one TASK.  
 A TASK may have one DEADLINE. A DEADLINE can have exactly one TASK.  
 
-![PlanHub Relations]("Database Design/PlanHubRelations.jpeg")
+![PlanHub Relations](Database-Design/PlanHubRelations.jpeg)
 
 This diagram shows the relations between each entity.
