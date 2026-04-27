@@ -17,4 +17,4 @@ const query = (sql, binding) => {
     });
 };
 
-module.express = { con, query };
+module.exports = { con, query };

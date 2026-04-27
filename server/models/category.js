@@ -17,10 +17,10 @@ async function createCategoryTable() {
 
 createCategoryTable()
 
-async function getAllCategory() {
+async function getAllCategories() {
     let sql = `SELECT * FROM Category;`
 
     return await con.query(sql)
 }
 
-module.exports = { getAllCategory }
+module.exports = { getAllCategories }

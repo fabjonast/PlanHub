@@ -98,5 +98,5 @@ CREATE TABLE IF NOT EXISTS Deadline(
     taskId INT NOT NULL,
     goalId INT NOT NULL,
     FOREIGN KEY (taskId) REFERENCES Task(taskId),
-    FOREIGN KEY (goalId) REFERENCES Goal(goalId),
+    FOREIGN KEY (goalId) REFERENCES Goal(goalId)
 );
