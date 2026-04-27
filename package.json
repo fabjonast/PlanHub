@@ -1,0 +1,24 @@
+{
+  "name": "planhub",
+  "version": "1.0.0",
+  "description": "PlanHub is an application built to empower users in managing their tasks, schedules, and long-term goals. Designed with a broad user base in mind: from those managing busy schedules to individuals seeking greater structure in their routines, the application prioritizes accessibility and ease of use. The core functions include task creation, editing, deadline management, and schedule visualization.",
+  "homepage": "https://github.com/fabjonast/PlanHub#readme",
+  "bugs": {
+    "url": "https://github.com/fabjonast/PlanHub/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabjonast/PlanHub.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "plan.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
