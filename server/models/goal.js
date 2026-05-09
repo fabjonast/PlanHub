@@ -21,10 +21,58 @@ async function createGoalTable() {
 
 createGoalTable()
 
+//create
+async function createGoal(userId, categoryId, title, status, startDate, targetDate, created, updated) {
+    let sql = `
+        INSERT INTO Goal(userId, categoryId, title, status, startDate, targetDate, created, updated)
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+    `
+    const[rows] = await con.query(sql, [userId, categoryId, title, status, startDate, targetDate, created, updated])
+    return rows.insertId
+}
+
+//read one goal
+async function getGoalById(goalId) {
+    let sql = `
+        SELECT * FROM Goal
+        WHERE goalId=?;
+    `
+    let goal = await con.query(sql, [goalId])
+    return goal[0]
+}
+
+//read all goals
 async function getAllGoals() {
     let sql = `SELECT * FROM Goal;`
 
     return await con.query(sql)
 }
 
-module.exports = { getAllGoals }
+//update
+async function updateGoal(goalId, fields) {
+    const allowed = ['userId', 'categoryId', 'title', 'status', 'startDate', 'targetDate', 'created', 'updated']
+    const updates = Object.keys(fields).filter(k => allowed.includes(k))
+
+    if(updates.length === 0) throw new Error("No valid fields to update")
+
+    const setClause = updates.map(k => `${k} = ?`).join(', ')
+    const values = updates.map(k => fields[k])
+
+    let sql = `
+        UPDATE Goal SET ${setClause}
+        WHERE goalId=?;
+    `
+    const [result] = await con.query(sql, [...values, goalId])
+    return result.affectedRows
+}
+
+//delete
+async function deleteGoal(goalId) {
+    let sql = `
+        DELETE FROM Goal
+        WHERE goalId=?
+    `
+    return await con.query(sql, [goalId])
+}
+
+module.exports = { createGoal, getGoalById, getAllGoals, updateGoal, deleteGoal }

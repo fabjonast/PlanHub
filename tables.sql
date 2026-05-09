@@ -3,12 +3,13 @@ CREATE TABLE IF NOT EXISTS User(
     firstName VARCHAR(50) NOT NULL,
     lastName VARCHAR(50) NOT NULL,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS Calendar(
     calendarId INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
     userId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES User(userId)
 );
@@ -36,9 +37,9 @@ CREATE TABLE IF NOT EXISTS Task(
     endDate DATETIME,
     isAllDay BOOLEAN NOT NULL DEFAULT FALSE,
     createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    userId INT NOT NULL,
-    scheduleId INT NOT NULL,
-    categoryId INT NOT NULL,
+    userId INT,
+    scheduleId INT,
+    categoryId INT,
     FOREIGN KEY (userId) REFERENCES User(userId),
     FOREIGN KEY (scheduleId) REFERENCES Schedule(scheduleId),
     FOREIGN KEY (categoryId) REFERENCES Category(categoryId)
@@ -48,10 +49,10 @@ CREATE TABLE IF NOT EXISTS Reminder(
     reminderId INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     date DATETIME,
-    userId INT NOT NULL,
-    goalId INT NOT NULL,
-    scheduleId INT NOT NULL,
-    taskId INT NOT NULL,
+    userId INT,
+    goalId INT,
+    scheduleId INT,
+    taskId INT,
     FOREIGN KEY (userId) REFERENCES User(userId),
     FOREIGN KEY (goalId) REFERENCES Goal(goalId),
     FOREIGN KEY (scheduleId) REFERENCES Schedule (scheduleId),
@@ -81,9 +82,9 @@ CREATE TABLE IF NOT EXISTS Note(
     content TEXT NOT NULL,
     createdAt DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated DATETIME,
-    taskId INT NOT NULL,
-    goalId INT NOT NULL,
-    reminderId INT NOT NULL,
+    taskId INT,
+    goalId INT,
+    reminderId INT,
     FOREIGN KEY (taskId) REFERENCES Task(taskId),
     FOREIGN KEY (goalId) REFERENCES Goal(goalId),
     FOREIGN KEY (reminderId) REFERENCES Reminder(reminderId)
@@ -95,8 +96,8 @@ CREATE TABLE IF NOT EXISTS Deadline(
     dueDate DATE NOT NULL,
     dueTime TIME,
     isCompleted BOOLEAN NOT NULL DEFAULT FALSE,
-    taskId INT NOT NULL,
-    goalId INT NOT NULL,
+    taskId INT,
+    goalId INT,
     FOREIGN KEY (taskId) REFERENCES Task(taskId),
     FOREIGN KEY (goalId) REFERENCES Goal(goalId)
 );
